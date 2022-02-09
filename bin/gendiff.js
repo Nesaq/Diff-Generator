@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 import { Command } from 'commander';
+//import gendiff from '../src/gendiff.js';
 
 const program = new Command();
 
@@ -9,5 +10,7 @@ program
   .arguments('<filepath1> <filepath2>')
 //   .option('-h, --help, display help for command')
 //   .option('-V, --version, output the version number')
-  .option('-f, --format <type>', 'output format');
+  .option('-f, --format <type>', 'output format')
+  // .action((filepath1, filepath2) => {
+  // });
 program.parse();
