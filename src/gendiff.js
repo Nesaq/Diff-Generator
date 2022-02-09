@@ -1,6 +1,15 @@
 import _ from 'lodash';
+import { readFileSync } from 'fs';
+import * as path from 'path';
 
-const gendiff = (data1, data2) => {
+const gendiff = (filepath1, filepath2) => {
+  const pathOne = path.resolve(filepath1);
+  const pathTwo = path.resolve(filepath2);
+  const jsonOne = readFileSync(pathOne);
+  const jsonTwo = readFileSync(pathTwo);
+  const data1 = JSON.parse(jsonOne);
+  const data2 = JSON.parse(jsonTwo);
+
   const keys1 = _.keys(data1);
   const keys2 = _.keys(data2);
   const keys = _.union(keys1, keys2);
