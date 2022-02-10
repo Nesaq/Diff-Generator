@@ -3,4 +3,4 @@
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/d0f5d780f47a393e19c5/maintainability)](https://codeclimate.com/github/Nesaq/frontend-project-lvl2/maintainability)
 
-[![My Github Actions](https://github.com/Nesaq/frontend-project-lvl1/workflows/github-action-test/badge.svg)](https://github.com/Nesaq/frontend-project-lvl1/actions)
+[![My Github Actions](https://github.com/Nesaq/frontend-project-lvl2/workflows/github-action/badge.svg)](https://github.com/Nesaq/frontend-project-lvl2/actions)
