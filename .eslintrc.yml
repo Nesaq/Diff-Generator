@@ -1,5 +1,5 @@
-plugins:
-  - jest
+# plugins:
+#   - jest
 env:
   es2021: true
   node: true
