@@ -4,7 +4,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 // eslint-disable-next-line import/no-duplicates
 import { dirname } from 'path';
-import gendiff from '../src/gendiff';
+import gendiff from '../src/gendiff.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
