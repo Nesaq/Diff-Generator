@@ -3,7 +3,7 @@
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/d0f5d780f47a393e19c5/maintainability)](https://codeclimate.com/github/Nesaq/frontend-project-lvl2/maintainability)
 
-[![NodeJS](https://github.com/Nesaq/frontend-project-lvl2/actions/workflows/nodejs.yml/badge.svg)](https://https://github.com/Nesaq/frontend-project-lvl2/actions/workflows/nodejs.yml)
+[![NodeJS](https://github.com/Nesaq/frontend-project-lvl2/actions/workflows/nodejs.yml/badge.svg)](https://github.com/Nesaq/frontend-project-lvl2/actions/workflows/nodejs.yml)
 
 [![Test Coverage](https://api.codeclimate.com/v1/badges/d0f5d780f47a393e19c5/test_coverage)](https://codeclimate.com/github/Nesaq/frontend-project-lvl2/test_coverage)
 
