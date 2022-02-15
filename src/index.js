@@ -1,6 +1,5 @@
 import { readFileSync } from 'fs';
 import path from 'path';
-// import { cwd } from 'process';
 import treeDiff from './dataCompare.js';
 import parser from './parser.js';
 import formatter from './formatters/index.js';

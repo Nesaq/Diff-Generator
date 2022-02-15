@@ -8,7 +8,7 @@ const stringify = (value) => {
   return _.isString(value) ? `'${value}'` : value;
 };
 
-const render = (nodes) => {
+const makeNode = (nodes) => {
   const iter = (node, nameKey) => {
     const currentKey = `${nameKey}${node.key}`;
     switch (node.type) {
@@ -23,7 +23,7 @@ const render = (nodes) => {
       case 'unchanged':
         return '';
       default:
-        return null;
+        throw new Error(`wrong ${node.type}`);
     }
   };
 
@@ -31,7 +31,7 @@ const render = (nodes) => {
 };
 
 const plain = (nodes) => {
-  const lines = nodes.map((node) => render(node));
+  const lines = nodes.map((node) => makeNode(node));
   return lines.join('').trim();
 };
 

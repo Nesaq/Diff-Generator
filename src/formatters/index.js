@@ -10,7 +10,7 @@ const formatter = (data, formatName) => {
     case 'json':
       return JSON.stringify(data);
     default:
-      return null;
+      throw new Error(`Wrong input format: '${formatName}'`);
   }
 };
 
