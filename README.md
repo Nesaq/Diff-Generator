@@ -38,14 +38,14 @@ Options:
 3. Compare two different extention documetns (JSON and YML) with `stylish` format option by default 
 [![asciicast](https://asciinema.org/a/6kDgMyOjyyleNfEuUswWCeyGH.svg)](https://asciinema.org/a/6kDgMyOjyyleNfEuUswWCeyGH)
 
-4. Compare two documents by `plain` format.
+4. Compare two documents by `plain` format
 ```
-Usage: `gendiff -f ***plain*** <filepath1> <filepath2>
+Usage: `gendiff -f plain <filepath1> <filepath2>`
 ``` 
 [![asciicast](https://asciinema.org/a/THEJXpp6edkha9eLzUyI8wXoY.svg)](https://asciinema.org/a/THEJXpp6edkha9eLzUyI8wXoY)
 
-5. Gendiff json format
+5. Gendiff JSON format
 ```
-Usage: `gendiff -format ***json*** <filepath1> <filepath2>
+Usage: `gendiff -format json <filepath1> <filepath2>`
 ```
 [![asciicast](https://asciinema.org/a/JQ2oCV67YGMZ5bonHKPdRnprw.svg)](https://asciinema.org/a/JQ2oCV67YGMZ5bonHKPdRnprw)

@@ -5,6 +5,7 @@ const parseExtension = (data, extension) => {
     case '.json':
       return JSON.parse(data);
     case '.yml':
+      return yaml.load(data);
     case '.yaml':
       return yaml.load(data);
     default:
