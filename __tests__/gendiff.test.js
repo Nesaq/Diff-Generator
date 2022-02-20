@@ -23,7 +23,7 @@ test.each([
   { a: yml1, b: json2, expected: stylish },
   { a: yml1, b: yml2, expected: stylish },
 ])('Stylish format test', ({ a, b, expected }) => {
-  expect(genDiff(a, b)).toBe(expected);
+  expect(genDiff(a, b, 'stylish')).toBe(expected);
 });
 
 test.each([
@@ -40,6 +40,6 @@ test.each([
   { a: json1, b: yml2, expected: jsonFormat },
   { a: yml1, b: json2, expected: jsonFormat },
   { a: yml1, b: yml2, expected: jsonFormat },
-])('JSON-format diff test', ({ a, b, expected }) => {
+])('JSON format test', ({ a, b, expected }) => {
   expect(genDiff(a, b, 'json')).toBe(expected);
 });
