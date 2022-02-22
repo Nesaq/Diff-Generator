@@ -6,7 +6,7 @@ const treeDiff = (obj1, obj2) => {
   const keys = _.union(keys1, keys2);
   const sortedKeys = _.sortBy(keys);
 
-  const nodes = sortedKeys.map((key) => {
+  return sortedKeys.map((key) => {
     if (_.isPlainObject(obj1[key]) && _.isPlainObject(obj2[key])) {
       return {
         key, children: treeDiff(obj1[key], obj2[key]), type: 'nested',
@@ -21,7 +21,8 @@ const treeDiff = (obj1, obj2) => {
     }
     return { key, children: obj1[key], type: 'unchanged' };
   });
-  return nodes;
 };
 
-export default treeDiff;
+const buildTree = (obj1, obj2) => ({ type: 'root', children: treeDiff(obj1, obj2) });
+
+export default buildTree;

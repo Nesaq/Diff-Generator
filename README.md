@@ -30,10 +30,10 @@ Options:
 ```
 
 1. Compare two JSON documents
-[![asciicast](https://asciinema.org/a/qUVjXOXZPvsHHIFbpx9fmvdgB.svg)](https://asciinema.org/a/qUVjXOXZPvsHHIFbpx9fmvdgB)
+[![asciicast](https://asciinema.org/a/470597.svg)](https://asciinema.org/a/470597)
 
 2. Compare two YAML documetns
-[![asciicast](https://asciinema.org/a/ytxbJN4ObgcFosxPssYEHOQ05.svg)](https://asciinema.org/a/ytxbJN4ObgcFosxPssYEHOQ05)
+[![asciicast](https://asciinema.org/a/470599.svg)](https://asciinema.org/a/470599)
 
 3. Compare two different extention documetns (JSON and YML) with `stylish` format option by default 
 [![asciicast](https://asciinema.org/a/6kDgMyOjyyleNfEuUswWCeyGH.svg)](https://asciinema.org/a/6kDgMyOjyyleNfEuUswWCeyGH)
