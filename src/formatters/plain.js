@@ -8,23 +8,21 @@ const stringify = (value) => {
   return _.isString(value) ? `'${value}'` : value;
 };
 
-const plain = (node, path) => {
-  const property = path ? `${path}.${node.key}` : node.key;
-  switch (node.type) {
+const plain = (nodes, path) => {
+  const property = path ? `${path}.${nodes.key}` : nodes.key;
+  switch (nodes.type) {
     case 'nested':
-      return (node.children.map((obj) => plain(obj, property))).filter((str) => str !== undefined).join('\n');
+      return (nodes.children.filter((node) => node.type !== 'unchanged').map((node) => plain(node, property)).join('\n'));
     case 'added':
-      return `Property '${property}' was added with value: ${stringify(node.children)}`;
+      return `Property '${property}' was added with value: ${stringify(nodes.children)}`;
     case 'deleted':
       return `Property '${property}' was removed`;
     case 'changed':
-      return `Property '${property}' was updated. From ${stringify(node.children)} to ${stringify(node.children2)}`;
-    case 'unchanged':
-      return undefined;
+      return `Property '${property}' was updated. From ${stringify(nodes.children)} to ${stringify(nodes.children2)}`;
     case 'root':
-      return (node.children.map((obj) => plain(obj, property))).join('\n');
+      return (nodes.children.filter((node) => node.type !== 'unchanged').map((node) => plain(node, property)).join('\n'));
     default:
-      throw new Error(`wrong ${node.type}`);
+      throw new Error(`wrong ${nodes.type}`);
   }
 };
 export default plain;

@@ -2,12 +2,6 @@ import _ from 'lodash';
 
 const getIndent = (depth, spaceCount = 4) => ' '.repeat(depth * spaceCount - 2);
 
-const mark = {
-  plus: '+',
-  minus: '-',
-  unchanged: ' ',
-};
-
 const stringify = (value, depth) => {
   if (!_.isPlainObject(value)) {
     return `${value}`;
@@ -23,17 +17,17 @@ const stringify = (value, depth) => {
 const stylish = (node, depth = 1) => {
   switch (node.type) {
     case 'nested':
-      return `\n${getIndent(depth)}  ${node.key}: {${node.children.map((child) => stylish(child, depth + 1)).join('')}\n${getIndent(depth)}  }`;
+      return `${getIndent(depth)}  ${node.key}: {\n${node.children.map((child) => stylish(child, depth + 1)).join('\n')}\n${getIndent(depth)}  }`;
     case 'added':
-      return `\n${getIndent(depth)}${mark.plus} ${node.key}: ${stringify(node.children, depth + 1)}`;
+      return `${getIndent(depth)}+ ${node.key}: ${stringify(node.children, depth + 1)}`;
     case 'deleted':
-      return `\n${getIndent(depth)}${mark.minus} ${node.key}: ${stringify(node.children, depth + 1)}`;
+      return `${getIndent(depth)}- ${node.key}: ${stringify(node.children, depth + 1)}`;
     case 'changed':
-      return `\n${getIndent(depth)}${mark.minus} ${node.key}: ${stringify(node.children, depth + 1)}\n${getIndent(depth)}${mark.plus} ${node.key}: ${stringify(node.children2, depth + 1)}`;
+      return `${getIndent(depth)}- ${node.key}: ${stringify(node.children, depth + 1)}\n${getIndent(depth)}+ ${node.key}: ${stringify(node.children2, depth + 1)}`;
     case 'unchanged':
-      return `\n${getIndent(depth)}  ${node.key}: ${stringify(node.children, depth + 1)}`;
+      return `${getIndent(depth)}  ${node.key}: ${stringify(node.children, depth + 1)}`;
     case 'root':
-      return `{${(node.children.map((obj) => stylish(obj, depth))).join('')}\n}`;
+      return `{\n${(node.children.map((obj) => stylish(obj, depth))).join('\n')}\n}`;
     default:
       throw new Error(`wrong type ${node.type}`);
   }

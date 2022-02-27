@@ -13,33 +13,17 @@ const json2 = getFixturePath('file2.json');
 const yml1 = getFixturePath('file1.yml');
 const yml2 = getFixturePath('file2.yml');
 
-const stylish = readFile('expectedResult.txt');
+const stylish = readFile('stylish.txt');
 const plainFormat = readFile('plain.txt');
 const jsonFormat = readFile('json.txt');
 
-test.each([
-  { a: json1, b: json2, expected: stylish },
-  { a: json1, b: yml2, expected: stylish },
-  { a: yml1, b: json2, expected: stylish },
-  { a: yml1, b: yml2, expected: stylish },
-])('Stylish format test', ({ a, b, expected }) => {
-  expect(genDiff(a, b, 'stylish')).toBe(expected);
-});
-
-test.each([
-  { a: json1, b: json2, expected: plainFormat },
-  { a: json1, b: yml2, expected: plainFormat },
-  { a: yml1, b: json2, expected: plainFormat },
-  { a: yml1, b: yml2, expected: plainFormat },
-])('Plain format test', ({ a, b, expected }) => {
-  expect(genDiff(a, b, 'plain')).toBe(expected);
-});
-
-test.each([
-  { a: json1, b: json2, expected: jsonFormat },
-  { a: json1, b: yml2, expected: jsonFormat },
-  { a: yml1, b: json2, expected: jsonFormat },
-  { a: yml1, b: yml2, expected: jsonFormat },
-])('JSON format test', ({ a, b, expected }) => {
-  expect(genDiff(a, b, 'json')).toBe(expected);
+describe('tests for diff generation between two files', () => {
+  test.each([
+    ['stylish', json1, json2, stylish],
+    ['stylish', yml1, yml2, stylish],
+    ['plain', json1, json2, plainFormat],
+    ['json', json1, json2, jsonFormat],
+  ])('genDiff compares file1 and file2 using %s for expected result', (formatName, file1, file2, expectedResult) => {
+    expect(genDiff(file1, file2, formatName)).toBe(expectedResult);
+  });
 });
