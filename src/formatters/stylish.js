@@ -8,10 +8,10 @@ const stringify = (value, depth) => {
   }
   const result = _.keys(value).map((key) => {
     const childrenValue = value[key];
-    return `${getIndent(depth)}  ${key}: ${stringify(childrenValue, depth + 1)}\n`;
+    return `${getIndent(depth)}  ${key}: ${stringify(childrenValue, depth + 1)}`;
   });
 
-  return `{\n${result.join('')}${getIndent(depth - 1)}  }`;
+  return `{\n${result.join('\n')}\n${getIndent(depth - 1)}  }`;
 };
 
 const stylish = (node, depth = 1) => {
